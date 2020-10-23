@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="customer">
+
+	<insert id="insertCustomer" parameterType="customerVO">
+		insert into customer values(#{CUST_NO},#{EMAIL},#{PW},#{ADDR},#{NICKNAME},#{INTEREST},#{NAME},#{M_PHONE},#{BIRTHDAY},#{FNAME})
+	</insert>
+	
+	<select id="login" resultType="customerVO">
+		select * from customer where email=#{email} and pw=#{pw}
+	</select>
+	
+	<delete id="deleteCustomer" parameterType="customerVO">
+		delete customer where email=#{email} and pw=#{pw}
+	</delete>
+	
+	<select id="getNextNo" resultType="java.lang.Integer">
+    	select nvl(max(cust_no),0)+1 from customer
+  	</select>
+ 
+  <!-- 회원정보 전체출력 [현왕] -->
+  <select id="selectAll" resultType="customerVO">
+    select * from customer
+  </select>
+  
+  <!-- 회원정보 갖고오기 [현왕] -->
+  <select id="selectByCust_No" resultType="customerVO">
+  	select * from customer where cust_no=#{cust_no}
+  </select>
+  
+  <!-- 회원수정 [현왕] -->
+  <update id="updateCustomer">
+  	update customer set fname=#{fname}, nickname=#{nickname}, pw=#{pw}, m_phone=#{m_phone}, addr=#{addr}, email=#{email}, interest=#{interest}, name=#{name} where cust_no=#{cust_no}
+  </update>
+  
+  <select id="getLoginInfo" resultType="customerVO">
+  	select cust_no, email, pw from customer where email=#{email} and pw=#{pw}
+  </select>
+</mapper>
+

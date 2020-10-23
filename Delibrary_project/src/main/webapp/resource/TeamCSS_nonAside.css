@@ -1,0 +1,267 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: sans-serif;
+	text-align: center;
+	background-image: url("img/background1.jpg");
+	background-size: contain;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+img {
+	border: 0;
+}
+
+label {
+	display: inline-block;
+	width: 300px;
+	line-height: 30px;
+}
+
+#main_header {
+	width: 960px;
+	margin: 0 auto;
+	height: 250px;
+	position: relative;
+	background-color: #2056AC;
+}
+
+#main_header>#title {
+	position: absolute;
+	left: 250px;
+	top: 40px;
+	height: 150px;
+	width: 500px;
+}
+
+#main_header>#main_gnb {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+}
+
+#main_header>#main_lnb {
+	position: absolute;
+	bottom: 0;
+}
+
+#logo {
+	position: absolute;
+	left: 20px;
+	top: 20px;
+	height: 150px;
+	width: 150px;
+}
+
+#main_gnb>ul {
+	overflow: hidden;
+}
+
+#main_gnb>ul>li {
+	float: left;
+}
+
+#main_gnb>ul>li>a {
+	display: block;
+	padding: 2px 10px;
+	color: white;
+}
+
+#main_gnb>ul>li>a:hover {
+	background: white;
+	color: #2056AC;
+}
+
+#main_lnb {
+	width: 960px;
+}
+
+#main_lnb>ul {
+	overflow: hidden;
+}
+
+#main_lnb>ul>li {
+	float: left;
+	width: 192px;
+	text-align: center;
+}
+
+#main_lnb>ul>li a {
+	display: block;
+	padding: 10px 10px;
+	color: white;
+}
+
+#main_lnb>ul .sub {
+	display: none;
+}
+
+#main_lnb>ul li:hover>ul {
+	width: 192px;
+	text-align: center;
+	display: block;
+	position: absolute;
+	background-color: #2056AC;
+	z-index: 10;
+}
+
+#main_lnb>ul li:hover>.sub li:hover {
+	display: block;
+	padding: 10px 10px;
+}
+
+#content {
+	width: 960px;
+	margin: 0 auto;
+	overflow: hidden;
+	background-color: white;
+}
+
+#content>#main_section {
+	width: 960px;
+	height: 750px;
+	float: right;
+	margin-left: auto;
+	overflow: scroll;
+}
+
+.tab_item {
+	height: 230px;
+}
+
+#main_section>article.main_article {
+	margin-bottom: 10px;
+	padding: 20px;
+	height: 300px;
+}
+
+.item {
+	overflow: hidden;
+	padding: 5px;
+	border: 1px solid black;
+	border-top: none;
+}
+
+.thumbnail {
+	float: left;
+}
+
+.description {
+	float: left;
+	margin: 10px;
+}
+
+.description>strong {
+	display: block;
+	width: 120px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.hr {
+	border-top: 1px solid gray;
+	margin-right: 20px;
+	margin-left: 20px;
+}
+
+#main_footer {
+	/* 중앙 정렬 */
+	width: 960px;
+	height: 100px;
+	margin: 0 auto;
+	margin-bottom: 10px;
+	/* 테두리 */
+	box-sizing: border-box;
+	padding: 10px;
+	/* 글자 정렬 */
+	text-align: center;
+	background-color: #2056AC;
+	color: white;
+}
+
+#main_footer img {
+	width: 30px;
+	height: 30px;	
+}
+
+/* 	인풋박스 이건 개중에 괜찮은거 같아서 남겨놨어요 지우셔도 돼요!  */
+.input-box {
+	/* display: block; */
+	margin-top: 0;
+	margin-bottom: 3px;
+	padding: 0 16px;
+	width: 50%;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	height: 30px;
+	margin: 0;
+}
+
+#content>#main_section table th, td {
+	border-collapse: collapse;
+}
+
+#content>#main_section table {
+	width: 100%;
+}
+
+#content>#main_section th, td {
+	border-bottom: 1px solid #efefef;
+	padding: 10px;
+}
+
+#content>#main_section h2 {
+	background-color: #cecece;
+	text-align: center;
+	height: 35px;
+	line-height: 35px;
+}
+
+#content>#main_section .insert {
+	float: left;
+}
+
+#content>#main_section .search {
+	float: right;
+}
+
+.titlemap {
+	text-align: center;
+	margin: 20px 0 2px 0;
+}
+
+.wrapperlist {
+	text-align: center;
+}
+
+.map {
+	display: inline-block;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.each_title {
+	margin: 5px 0 5px 0;
+}
+
+.maplist {
+	display: flexbox;
+	align-items: center;
+	justify-content: stretch;
+	margin-bottom: 30px;
+	margin-right: 40px;
+}

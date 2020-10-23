@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="main">
+
+	<!-- 홈화면  -->
+	<select id="getStaffRecommend" resultType="bookVO">
+		select b_no, b_title, b_writer, b_image from book where b_no in(1, 2, 3, 4, 5, 6)
+	</select>
+	
+	<select id="getNewRecommend" resultType="bookVO">
+		select rownum, b_no, b_title, b_writer, b_image from (select b_no, b_title, b_writer, b_image from book order by b_year) <![CDATA[where rownum <= 6]]>
+	</select>
+	
+	<select id="getHomePost" resultType="postVO">
+		select rownum, p_id, p_no, p_title from (select p_id, p_no, p_title from post where p_no like #{group}||'%') <![CDATA[where rownum <= 3]]>
+	</select>
+
+	<!-- 로그인 -->
+	<select id="getCustInfo" parameterType="customerVO" resultType="customerVO">
+		select cust_no, email, pw from customer where email=#{email} and pw=#{pw}
+	</select>
+	
+	<!-- 회원가입 -->
+	<select id="newCust_no" resultType="Integer">
+		select nvl(max(cust_no),0)+1 from customer
+	</select>
+	
+	<insert id="insertCustomer" parameterType="customerVO">
+		insert into customer values(#{cust_no}, #{email}, #{pw}, #{addr}, #{nickname}, #{interest}, #{name}, #{m_phone}, #{birthday}, #{fname})
+	</insert>
+	
+	<!-- 회원 탈퇴 -->
+	<delete id="optOut">
+		delete customer where email=#{email} and pw=#{pw}
+	</delete>
+	
+	<!-- 게시판 게시글 가져오기 -->
+	<select id="getpostList" resultType="postVO">
+		select * from post where p_no like #{group}||'%'
+	</select>
+	
+	<!-- 페이징 처리를 위해 총 게시물 갯수 구해오기 -->
+	<select id="getTotalCount" resultType="Integer">
+		select count(*) from post where p_no like #{group}||'%'
+	</select>
+</mapper>

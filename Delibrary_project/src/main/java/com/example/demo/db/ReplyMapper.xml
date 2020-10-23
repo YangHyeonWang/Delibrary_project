@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="reply">
+	<!-- 댓글 불러오기 -->
+	<select id="selectAll" resultType="replyVO">
+    	select * from reply where p_id=#{p_id}
+	</select>
+	<!-- 
+	<select id="selectReplyBull" resultType="replyVo">
+		select * from reply where p_no like '10%' and p_id=#{p_id}
+	</select>
+	<select id="selectReplyCreate" resultType="replyVo">
+		select * from reply where p_no like '20%' and p_id=#{p_id}
+	</select>
+	<select id="selectReplyUsed" resultType="replyVo">
+		select * from reply where p_no like '30%' and p_id=#{p_id}
+	</select>
+	 -->
+	 
+	 <!-- 다음 댓글번호 -->
+	<select id="nextNo" resultType="java.lang.Integer">
+	 	 select nvl(max(re_no),0) + 1 from reply
+	 </select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
