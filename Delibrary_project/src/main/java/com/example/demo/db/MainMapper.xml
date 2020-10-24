@@ -4,11 +4,11 @@
 
 	<!-- 홈화면  -->
 	<select id="getStaffRecommend" resultType="bookVO">
-		select b_no, b_title, b_writer, b_image from book where b_no in(1, 2, 3, 4, 5, 6)
+		select b_no, b_title, b_writer, b_image from book where b_no between 1 and 12
 	</select>
 	
 	<select id="getNewRecommend" resultType="bookVO">
-		select rownum, b_no, b_title, b_writer, b_image from (select b_no, b_title, b_writer, b_image from book order by b_year) <![CDATA[where rownum <= 6]]>
+		select rownum, b_no, b_title, b_writer, b_image from (select b_no, b_title, b_writer, b_image from book order by b_year) <![CDATA[where rownum <= 12]]>
 	</select>
 	
 	<select id="getHomePost" resultType="postVO">
@@ -35,7 +35,7 @@
 	</delete>
 	
 	<!-- 게시판 게시글 가져오기 -->
-	<select id="getpostList" resultType="postVO">
+	<select id="getListPost" resultType="postVO">
 		select * from post where p_no like #{group}||'%'
 	</select>
 	
